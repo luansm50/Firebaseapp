@@ -15,7 +15,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        databaseReference.child("pontos").setValue("100");
+        DatabaseReference usuarios = databaseReference.child("usuarios");
+        DatabaseReference produtos = databaseReference.child("produtos");
+
+        Usuario usuario = new Usuario();
+        usuario.setIdade(20);
+        usuario.setNome("Luan");
+        usuario.setSobrenome("Melo");
+
+        usuarios.child("001").setValue(usuario);
+
+        Produto produto = new Produto();
+        produto.setDescricao("Tables Samsung 32GB 9.5 Modelo 25AKSLO");
+        produto.setMarca("Samsung");
+        produto.setPreco(new Float(2.5));
+
+        produtos.child("001").setValue(produto);
 
 
     }
